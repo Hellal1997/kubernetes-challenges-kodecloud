@@ -1,0 +1,29 @@
+# kubectl create deployment vote-deployment --image=kodekloud/examplevotingapp_vote:before -n vote --dry-run=client -o yaml > deploy.yaml
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vote-deployment
+  name: vote-deployment
+  namespace: vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: vote-deployment
+    spec:
+      containers:
+      - image: kodekloud/examplevotingapp_vote:before
+        name: vote
+        resources: {}
+
+
